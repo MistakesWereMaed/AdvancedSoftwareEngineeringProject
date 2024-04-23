@@ -2,9 +2,12 @@
 
 This PHP web application facilitates the process of importing data from a CSV file into a MySQL database. It provides error logging, error tracking, and validation features to ensure smooth data import. Additionally, it includes functionality to create, modify, and view equipment data through a set of API endpoints, both for the web interface and for external sites.
 
+## Note
+This project is still currently being completed: the documentation and external website will be finished within the week (as of 4/23/2024).
+
 ## Features
 
-- **CSV Import:** Allows users to upload CSV files containing data to be imported into the MySQL database.
+- **CSV Import:** Allows users to upload large CSV files containing data to be imported into the MySQL database.
 - **Error Handling:** Logs encountered errors during the import process and keep track of error types and line numbers.
 - **Database Integration:** Imports valid data into the MySQL database while tracking and managing erroneous data for later validation.
 - **API Endpoints:** Provides a set of API endpoints to replicate web functionalities, ensuring seamless integration with external sites.

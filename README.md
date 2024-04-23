@@ -5,29 +5,30 @@ This PHP web application facilitates the process of importing data from a CSV fi
 ## Features
 
 - **CSV Import:** Allows users to upload CSV files containing data to be imported into the MySQL database.
-- **Error Handling:** Logs encountered errors during the import process and keeps track of error types and line numbers.
+- **Error Handling:** Logs encountered errors during the import process and keep track of error types and line numbers.
 - **Database Integration:** Imports valid data into the MySQL database while tracking and managing erroneous data for later validation.
 - **API Endpoints:** Provides a set of API endpoints to replicate web functionalities, ensuring seamless integration with external sites.
+- **Logging:** Logs all API and web endpoint calls, including the source of the call, timestamp, the endpoint called, and the result of the call, ensuring comprehensive tracking and monitoring of system activity.
 - **Endpoint Documentation:** Detailed documentation of API endpoints with input parameters, expected outputs, and error messages.
 - **Nginx Configuration:** Properly configured Nginx server to accommodate API endpoints.
 
 ## Web Endpoints
 
 ### Search
-- **Endpoint:** `/search`
+- **Endpoint:** `/web/search`
 - **Functionality:** Search for equipment by device type, manufacturer, or serial number.
 - **Additional Features:** Option to include inactive equipment, limits results to 1000 records.
 
 ### Add Equipment
-- **Endpoint:** `/add_equipment`
+- **Endpoint:** `/web/add_equipment`
 - **Functionality:** Add new equipment, with the ability to add a new device or manufacturer.
 
 ### Modify Equipment
-- **Endpoint:** `/modify_equipment`
+- **Endpoint:** `/web/modify_equipment`
 - **Functionality:** Update device type, manufacturer, serial number, or availability status of equipment.
 
 ### View Equipment
-- **Endpoint:** `/view_equipment`
+- **Endpoint:** `/web/view_equipment`
 - **Functionality:** View details of a single equipment entry, including device name, manufacturer name, serial number, and status.
 
 ## API Endpoints

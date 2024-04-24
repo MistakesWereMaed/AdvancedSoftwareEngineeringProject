@@ -5,9 +5,9 @@
 <file name="search.php" server="ec2-3-16-218-236.us-east-2.compute.amazonaws.com//var/www/html/" local="133561096159905753" remote="133561096180000000" Dst="2" />
 <file name="add.php" server="ec2-18-224-246-127.us-east-2.compute.amazonaws.com//var/www/html/" local="133572678462121860" remote="133572678520000000" Dst="2" />
 <file name="index.php" server="ec2-18-224-246-127.us-east-2.compute.amazonaws.com//var/www/html/" local="133571979192078826" remote="133571980680000000" Dst="2" />
-<file name="search.php" server="ec2-18-224-246-127.us-east-2.compute.amazonaws.com//var/www/html/" local="133583719835069540" remote="133583719920000000" Dst="2" />
+<file name="search.php" server="ec2-18-224-246-127.us-east-2.compute.amazonaws.com//var/www/html/" local="133584593666270603" remote="133584593820000000" Dst="2" />
 <file name="add_manufacturer.php" server="ec2-18-224-246-127.us-east-2.compute.amazonaws.com//var/www/html/" local="133572681137706077" remote="133572681230000000" Dst="2" />
 <file name="add_device.php" server="ec2-18-224-246-127.us-east-2.compute.amazonaws.com//var/www/html/" local="133573571291908776" remote="133573597970000000" Dst="2" />
 <file name="view.php" server="ec2-18-224-246-127.us-east-2.compute.amazonaws.com//var/www/html/" local="133580289064717295" remote="133580289110000000" Dst="2" />
-<file name="modify.php" server="ec2-18-224-246-127.us-east-2.compute.amazonaws.com//var/www/html/" local="133579686267165899" remote="133579686400000000" Dst="2" />
+<file name="modify.php" server="ec2-18-224-246-127.us-east-2.compute.amazonaws.com//var/www/html/" local="133584589109722753" remote="133584589190000000" Dst="2" />
 </dwsync>

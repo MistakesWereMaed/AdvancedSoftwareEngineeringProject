@@ -13,8 +13,8 @@ if ($did==NULL){
 $data = "$did";
 $result = api_call($data, "query_device");
 if(is_array($result)){
-	$jsonEquipment=json_encode($result);
-	post_data("SUCCESS", "$jsonEquipment", "None");
+	$jsonDevice=json_encode($result);
+	post_data("SUCCESS", "$jsonDevice", "None");
 } else {
 	switch($result){
 		case "INVALID_DEVICE_ID":

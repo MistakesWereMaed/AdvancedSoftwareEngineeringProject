@@ -106,7 +106,7 @@
         $device=$_POST['device'];
         $manufacturer=$_POST['manufacturer'];
         $serial_number=sanitize(trim($_POST['serial_number']));
-		$include_inactive = isset($_POST['status']) ? true : 'false';
+		$include_inactive = isset($_POST['status']) ? 'yes' : 'no';
 		
 		if(strlen($serial_number) > 64){
 			redirect("search.php?msg=INVALID_SERIAL");

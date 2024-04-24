@@ -68,7 +68,7 @@
 						{
 							$msg = $_REQUEST['msg'];
 							switch($msg){
-								case "DEVICE_MODIFIED":
+								case "ITEM_MODIFIED":
 									echo '<div class="alert alert-success" role="alert">Device successfully modified.</div>';
 									break;
 								case "ITEM_EXISTS":

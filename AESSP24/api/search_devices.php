@@ -36,7 +36,7 @@ if(is_array($result)){
 			break;
 		//TODO: May need to handle invalid status flag
 		case "NO_RESULTS":
-			post_data("SUCCESS", "No devices found", "None");
+			post_data("SUCCESS", "No equipment found", "None");
 			break;
 		default:
 			post_data("ERROR", "$result", "None");

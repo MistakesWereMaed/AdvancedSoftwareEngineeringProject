@@ -1,6 +1,6 @@
 <?php
 include_once("../utils/db_manager.php");
-include_once("logger.php");
+include_once("../utils/logger.php");
 include_once("../utils/sanitizer.php");
 
 function add_manufacturer($manufacturer){

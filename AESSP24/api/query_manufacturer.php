@@ -13,8 +13,8 @@ if ($mid==NULL){
 $data = "$mid";
 $result = api_call($data, "query_manufacturer");
 if(is_array($result)){
-	$jsonEquipment=json_encode($result);
-	post_data("SUCCESS", "$jsonEquipment", "None");
+	$jsonManufacturer=json_encode($result);
+	post_data("SUCCESS", "$jsonManufacturer", "None");
 } else {
 	switch($result){
 		case "INVALID_MANUFACTURER_ID":

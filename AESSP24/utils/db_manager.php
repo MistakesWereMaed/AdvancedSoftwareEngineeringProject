@@ -35,7 +35,7 @@ function sql_get($sql, $id, $name){
 		$result=$dblink->query($sql);
 		$dblink->close();
 		while ($row=$result->fetch_array(MYSQLI_ASSOC))
-			$data[$row[$id]]=$row[$name];
+			$data[$row[$id]]=$row;
 	} catch(Exception $e){
 		$error = $e->getMessage();
 		return "QUERY_FAILED: $error";

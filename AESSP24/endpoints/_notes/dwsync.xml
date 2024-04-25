@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <dwsync>
-<file name="get_devices.php" server="ec2-18-224-246-127.us-east-2.compute.amazonaws.com//var/www/html/" local="133573662419589469" remote="133573676720000000" Dst="2" />
+<file name="get_devices.php" server="ec2-18-224-246-127.us-east-2.compute.amazonaws.com//var/www/html/" local="133585463518211501" remote="133585463920000000" Dst="2" />
 <file name="add_device.php" server="ec2-18-224-246-127.us-east-2.compute.amazonaws.com//var/www/html/" local="133573667541255159" remote="133573676700000000" Dst="2" />
 <file name="add_equipment.php" server="ec2-18-224-246-127.us-east-2.compute.amazonaws.com//var/www/html/" local="133573678388547799" remote="133573678660000000" Dst="2" />
 <file name="add_manufacturer.php" server="ec2-18-224-246-127.us-east-2.compute.amazonaws.com//var/www/html/" local="133584589727891979" remote="133584590200000000" Dst="2" />
-<file name="get_manufacturers.php" server="ec2-18-224-246-127.us-east-2.compute.amazonaws.com//var/www/html/" local="133573662493453288" remote="133573676720000000" Dst="2" />
+<file name="get_manufacturers.php" server="ec2-18-224-246-127.us-east-2.compute.amazonaws.com//var/www/html/" local="133585463860837078" remote="133585463940000000" Dst="2" />
 <file name="modify_equipment.php" server="ec2-18-224-246-127.us-east-2.compute.amazonaws.com//var/www/html/" local="133579683289386303" remote="133579683350000000" Dst="2" />
 <file name="query_device.php" server="ec2-18-224-246-127.us-east-2.compute.amazonaws.com//var/www/html/" local="133573678489652871" remote="133573678670000000" Dst="2" />
 <file name="query_manufacturer.php" server="ec2-18-224-246-127.us-east-2.compute.amazonaws.com//var/www/html/" local="133573678563508117" remote="133573678670000000" Dst="2" />
 <file name="query_serial.php" server="ec2-18-224-246-127.us-east-2.compute.amazonaws.com//var/www/html/" local="133573672600530460" remote="133573676730000000" Dst="2" />
-<file name="search_devices.php" server="ec2-18-224-246-127.us-east-2.compute.amazonaws.com//var/www/html/" local="133584594237351128" remote="133584594340000000" Dst="2" />
+<file name="search_devices.php" server="ec2-18-224-246-127.us-east-2.compute.amazonaws.com//var/www/html/" local="133585462330106530" remote="133585462380000000" Dst="2" />
 <file name="query_id.php" server="ec2-18-224-246-127.us-east-2.compute.amazonaws.com//var/www/html/" local="133582920027113585" remote="133582928430000000" Dst="2" />
 <file name="modify_device.php" server="ec2-18-224-246-127.us-east-2.compute.amazonaws.com//var/www/html/" local="133579614848245719" remote="133579616340000000" Dst="2" />
 <file name="modify_manufacturer.php" server="ec2-18-224-246-127.us-east-2.compute.amazonaws.com//var/www/html/" local="133579616228572685" remote="133579616350000000" Dst="2" />

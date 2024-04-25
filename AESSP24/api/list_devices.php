@@ -2,7 +2,9 @@
 include("../endpoints/get_devices.php");
 include_once("../utils/web_actions.php");
 
-$result = api_call('', "get_devices");
+$include_inactive=$_REQUEST['include_inactive'];
+
+$result = api_call($include_inactive, "get_devices");
 if(is_array($result)){
 	$jsonDevices=json_encode($result);
 	post_data("SUCCESS", "$jsonDevices", "None");

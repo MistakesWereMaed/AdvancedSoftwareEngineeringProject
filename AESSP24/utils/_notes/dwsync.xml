@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <dwsync>
 <file name="web_actions.php" server="ec2-18-224-246-127.us-east-2.compute.amazonaws.com//var/www/html/" local="133571765510577265" remote="133571800740000000" Dst="2" />
-<file name="db_manager.php" server="ec2-18-224-246-127.us-east-2.compute.amazonaws.com//var/www/html/" local="133583723558943730" remote="133583723570000000" Dst="2" />
+<file name="db_manager.php" server="ec2-18-224-246-127.us-east-2.compute.amazonaws.com//var/www/html/" local="133585439164727119" remote="133585439230000000" Dst="2" />
 <file name="logger.php" server="ec2-18-224-246-127.us-east-2.compute.amazonaws.com//var/www/html/" local="133573561816216316" remote="133573561860000000" Dst="2" />
 <file name="sanitizer.php" server="ec2-18-224-246-127.us-east-2.compute.amazonaws.com//var/www/html/" local="133573689807979986" remote="133573689830000000" Dst="2" />
 </dwsync>

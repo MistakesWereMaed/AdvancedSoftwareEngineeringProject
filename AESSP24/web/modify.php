@@ -52,8 +52,8 @@
 				   		include("../endpoints/modify_equipment.php");
 				   		include("../utils/web_actions.php");
 				   
-                        $devices = get_devices();
-				   		$manufacturers = get_manufacturers();
+                        $devices = get_devices(NULL);
+				   		$manufacturers = get_manufacturers(NULL);
 				   		$selected_device = NULL;
 				   
 				   		if (isset($_REQUEST['did'])){
@@ -91,9 +91,9 @@
 								
                                 foreach($devices as $key=>$value)
 									if($key == $selected_device['device_type']){
-										echo '<option value="'.$key.'" selected>'.$value.'</option>';
+										echo '<option value="'.$key.'" selected>'.$value['device_type'].'</option>';
 									} else {
-										echo '<option value="'.$key.'">'.$value.'</option>';
+										echo '<option value="'.$key.'">'.$value['device_type'].'</option>';
 									}
                             ?>
                         </select>
@@ -104,9 +104,9 @@
                             <?php
                                 foreach($manufacturers as $key=>$value)
                                     if($key == $selected_device['manufacturer']){
-										echo '<option value="'.$key.'" selected>'.$value.'</option>';
+										echo '<option value="'.$key.'" selected>'.$value['manufacturer'].'</option>';
 									} else {
-										echo '<option value="'.$key.'">'.$value.'</option>';
+										echo '<option value="'.$key.'">'.$value['manufacturer'].'</option>';
 									}
                             ?>
                         </select>

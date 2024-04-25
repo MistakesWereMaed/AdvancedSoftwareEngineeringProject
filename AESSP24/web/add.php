@@ -48,8 +48,8 @@
                    <?php 
 				   		include("../endpoints/get_devices.php");
 				   		include("../endpoints/get_manufacturers.php");
-                        $devices = get_devices();
-				   		$manufacturers = get_manufacturers();
+                        $devices = get_devices(NULL);
+				   		$manufacturers = get_manufacturers(NULL);
                         if (isset($_REQUEST['msg']))
 						{
 							$msg = $_REQUEST['msg'];
@@ -76,7 +76,7 @@
                         <select class="form-control" name="device">
                             <?php
                                 foreach($devices as $key=>$value)
-                                    echo '<option value="'.$key.'">'.$value.'</option>';
+                                    echo '<option value="'.$key.'">'.$value['device_type'].'</option>';
                             ?>
                         </select>
                     </div>
@@ -85,7 +85,7 @@
                         <select class="form-control" name="manufacturer">
                             <?php
                                 foreach($manufacturers as $key=>$value)
-                                    echo '<option value="'.$key.'">'.$value.'</option>';
+                                    echo '<option value="'.$key.'">'.$value['manufacturer'].'</option>';
                             ?>
                         </select>
                     </div>

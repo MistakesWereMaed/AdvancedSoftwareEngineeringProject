@@ -60,15 +60,36 @@
 									break;
 							}
 						}
+				   		include("../endpoints/get_devices.php");
+				   		$device_list = get_devices('yes');
                    ?>
-                    <form method="post" action="">
-                    <div class="form-group">
+				   <form method="post" action="">
                     <div class="form-group">
                         <label for="exampleDevice">Device:</label>
                         <input type="text" class="form-control" id="deviceInput" name="device">
                     </div>
 						<button type="submit" class="btn btn-primary" name="submit" value="submit">Add Device</button>
+					   <hr>
                    </form>
+				   <p>Current Devices: click on an entry to modify it</p>
+					<table class='table table-hover'>
+						<thead><tr><th>NAME</th><th>STATUS</th></tr></thead>
+						<tbody>
+							<?php
+							if ($device_list != "NO_RESULTS") {
+								foreach ($device_list as $key => $value) {
+									$did = $value['type_id'];
+									echo "<tr style='cursor:pointer;' onclick=\"window.location='modify_device.php?did=$did';\">";
+									echo "<td>" . $value['device_type'] . "</td>";
+									echo "<td>" . $value['status'] . "</td>";
+									echo "</tr>";
+								}
+							} else {
+								echo "<tr><td colspan='4'>No devices found</td></tr>";
+							}
+							?>
+						</tbody>
+					</table>
                </div>
           </div>
      </section>

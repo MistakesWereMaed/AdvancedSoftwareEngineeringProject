@@ -44,26 +44,6 @@
      <section id="feature">
           <div class="container">
                <div class="row">
-                   <?php
-				   /*
-                    if (isset($_REQUEST['msg']))
-                    {
-						$msg = $_REQUEST['msg'];
-						switch($msg){
-							case "ITEM_ADDED":
-								echo '<div class="alert alert-success" role="alert">Item successfully added.</div>';
-								break;
-							case "ITEM_EXISTS":
-								echo '<div class="alert alert-danger" role="alert">Item already exists in database!</div>';
-								break;
-							default:
-								echo "<div class='alert alert-danger' role='alert'>$msg</div>";
-								break;
-						}
-                    }
-					*/
-                    ?>
-                        
                     <div class="col-md-4 col-sm-4">
                          <div class="feature-thumb">
                               <h3>Search Equipment</h3>
@@ -78,9 +58,6 @@
                              <a href="add.php" class="btn btn-default smoothScroll">Discover more</a>
                          </div>
                     </div>
-
-                    
-
                </div>
           </div>
      </section>

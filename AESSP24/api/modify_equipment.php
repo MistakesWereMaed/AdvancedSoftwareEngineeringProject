@@ -41,6 +41,12 @@ switch($result){
 	case "INVALID_MANUFACTURER_ID":
 		post_data('ERROR', 'Invalid manufacturer id.', 'query_manufacturer');
 		break;
+	case "INVALID_SERIAL":
+			post_data('ERROR', 'Invalid serial number.', 'None');
+			break;
+	case "INVALID_STATUS":
+			post_data('ERROR', 'Invalid status.', 'None');
+			break;
 	case "ITEM_EXISTS":
 		post_data('ERROR', 'Equipment already exists in database.', 'query_serial');
 		break;

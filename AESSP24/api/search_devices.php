@@ -17,9 +17,7 @@ if ($mid==NULL){
 if ($sn==NULL){
     $sn = 0;
 }
-if ($include_inactive==NULL){
-    $include_inactive = false;
-}
+$include_inactive = $include_inactive == NULL ? false : true;
 
 $data = "$did&$mid&$sn&$include_inactive";
 $result = api_call($data, "search_devices");
@@ -34,7 +32,9 @@ if(is_array($result)){
 		case "INVALID_MANUFACTURER_ID":
 			post_data('ERROR', 'Invalid manufacturer id.', 'query_manufacturer');
 			break;
-		//TODO: May need to handle invalid status flag
+		case "INVALID_SERIAL":
+			post_data('ERROR', 'Invalid serial number.', 'None');
+			break;
 		case "NO_RESULTS":
 			post_data("SUCCESS", "No equipment found", "None");
 			break;

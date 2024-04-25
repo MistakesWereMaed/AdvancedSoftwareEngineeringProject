@@ -55,6 +55,9 @@
 								case "ITEM_EXISTS":
 									echo '<div class="alert alert-danger" role="alert">Manufacturer already exists in database!</div>';
 									break;
+								case "INVALID_MANUFACTURER":
+									echo '<div class="alert alert-danger" role="alert">Missing or invalid manufacturer</div>';
+									break;
 								default:
 									echo "<div class='alert alert-danger' role='alert'>$msg</div>";
 									break;

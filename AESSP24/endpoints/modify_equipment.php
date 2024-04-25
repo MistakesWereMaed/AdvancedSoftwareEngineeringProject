@@ -13,8 +13,12 @@ function modify_equipment($device_id, $device, $manufacturer, $serial_number, $s
 	if(!is_numeric($manufacturer)){
 		return "INVALID_MANUFACTURER_ID";
 	}
-	$status = sanitize($status);
-	$serial_number = sanitize($serial_number);
+	if(!safe_input($serial_number)){
+		return 'INVALID_SERIAL';
+	}
+	if(!safe_input($status)){
+		return 'INVALID_STATUS';
+	}
 	$sql = "UPDATE devices SET device_type='$device', manufacturer='$manufacturer', serial_number='$serial_number', status='$status' WHERE device_id='$device_id'";
 	$result = sql_modify($sql);
 	log_call("modify_equipment", $result);

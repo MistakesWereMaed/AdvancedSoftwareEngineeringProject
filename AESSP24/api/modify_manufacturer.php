@@ -28,6 +28,9 @@ switch($result){
 	case "ITEM_EXISTS":
 		post_data('ERROR', 'Manufacturer already exists in database.', 'list_manufacturers');
 		break;
+	case "INVALID_MANUFACTURER":
+			post_data('ERROR', 'Invalid manufacturer name.', 'None');
+			break;
 	case "ITEM_MODIFIED":
 		post_data('SUCCESS', 'Manufacturer modified successfully.', 'None');
 		break;

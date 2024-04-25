@@ -72,6 +72,9 @@
 								case "INVALID_DEVICE":
 									echo '<div class="alert alert-danger" role="alert">Missing or invalid device</div>';
 									break;
+								case "INVALID_STATUS":
+									echo '<div class="alert alert-danger" role="alert">Missing or invalid status</div>';
+									break;
 								default:
 									echo "<div class='alert alert-danger' role='alert'>$msg</div>";
 									break;

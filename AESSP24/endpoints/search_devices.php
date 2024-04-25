@@ -12,8 +12,8 @@ function search_devices($type_id, $manufacturer_id, $serial_number, $include_ina
 	} 
 	if(strlen($serial_number) < 1){
 		$serial_number = 0;
-	} else {
-		$serial_number = sanitize($serial_number);
+	} else if(!safe_input($serial_number)){
+		return 'INVALID_SERIAL';
 	}
 	
 	$sql = "SELECT d.device_id, d.serial_number, dt.device_type, m.manufacturer, d.status

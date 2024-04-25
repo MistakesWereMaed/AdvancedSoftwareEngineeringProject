@@ -20,6 +20,9 @@ if(is_array($result)){
 		case "SERIAL_NUMBER_NOT_FOUND":
 			post_data('SUCCESS', 'Equipment not found.', 'None');
 			break;
+		case "INVALID_SERIAL":
+			post_data('ERROR', 'Invalid serial number.', 'None');
+			break;
 		default:
 			post_data('ERROR', "$result", 'None');
 			break;

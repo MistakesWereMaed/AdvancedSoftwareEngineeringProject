@@ -60,6 +60,12 @@
 								case "ITEM_EXISTS":
 									echo '<div class="alert alert-danger" role="alert">Item already exists in database!</div>';
 									break;
+								case "INVALID_DEVICE_ID":
+									echo '<div class="alert alert-danger" role="alert">Invalid device id</div>';
+									break;
+								case "INVALID_MANUFACTURER_ID":
+									echo '<div class="alert alert-danger" role="alert">Invalid device id</div>';
+									break;
 								case "INVALID_SERIAL":
 									echo '<div class="alert alert-danger" role="alert">Missing or invalid serial number</div>';
 									break;

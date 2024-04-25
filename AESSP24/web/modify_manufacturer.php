@@ -72,6 +72,9 @@
 								case "INVALID_MANUFACTURER":
 									echo '<div class="alert alert-danger" role="alert">Missing or invalid manufacturer</div>';
 									break;
+								case "INVALID_STATUS":
+									echo '<div class="alert alert-danger" role="alert">Missing or invalid status</div>';
+									break;
 								default:
 									echo "<div class='alert alert-danger' role='alert'>$msg</div>";
 									break;

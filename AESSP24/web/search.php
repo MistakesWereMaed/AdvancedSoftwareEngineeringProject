@@ -54,6 +54,12 @@
 						{
 							$msg = $_REQUEST['msg'];
 							switch($msg){
+								case "INVALID_DEVICE_ID":
+									echo '<div class="alert alert-danger" role="alert">Invalid manufacturer id</div>';
+									break;
+								case "INVALID_MANUFACTURER_ID":
+									echo '<div class="alert alert-danger" role="alert">Invalid manufacturer id</div>';
+									break;
 								case "INVALID_SERIAL":
 									echo '<div class="alert alert-danger" role="alert">Invalid serial number</div>';
 									break;
@@ -105,12 +111,11 @@
 		
         $device=$_POST['device'];
         $manufacturer=$_POST['manufacturer'];
-        $serial_number=sanitize(trim($_POST['serial_number']));
-		$include_inactive = isset($_POST['status']) ? 'yes' : 'no';
-		
-		if(strlen($serial_number) > 64){
+		$serial_number=trim($_POST['serial_number']);
+		if(!safe_input($serial_number)){
 			redirect("search.php?msg=INVALID_SERIAL");
 		}
+		$include_inactive = isset($_POST['status']) ? 'yes' : 'no';
 		
 		redirect("view.php?filters='$device,$manufacturer,$serial_number,$include_inactive'");
     }

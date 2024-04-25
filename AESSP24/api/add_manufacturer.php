@@ -19,6 +19,9 @@ switch($result){
 	case "ITEM_ADDED":
 		post_data('SUCCESS', 'Manufacturer added successfully.', 'None');
 		break;
+	case "INVALID_MANUFACTURER":
+		post_data('ERROR', 'Invalid manufacturer name.', 'None');
+		break;
 	default:
 		post_data('ERROR', "$result", 'None');
 		break;

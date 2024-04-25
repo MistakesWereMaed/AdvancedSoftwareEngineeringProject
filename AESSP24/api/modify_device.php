@@ -25,6 +25,12 @@ switch($result){
 	case "INVALID_DEVICE_ID":
 		post_data('ERROR', 'Invalid device id.', 'query_device');
 		break;
+	case "INVALID_DEVICE":
+		post_data('ERROR', 'Invalid device name.', 'None');
+		break;
+	case "INVALID_STATUS":
+		post_data('ERROR', 'Invalid status.', 'None');
+		break;
 	case "ITEM_EXISTS":
 		post_data('ERROR', 'Device already exists in database.', 'list_devices');
 		break;

@@ -19,6 +19,9 @@ switch($result){
 	case "ITEM_ADDED":
 		post_data('SUCCESS', 'Device added successfully.', 'None');
 		break;
+	case "INVALID_DEVICE":
+		post_data('ERROR', 'Invalid device name.', 'None');
+		break;
 	default:
 		post_data('ERROR', "$result", 'None');
 		break;

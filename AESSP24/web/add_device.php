@@ -55,6 +55,9 @@
 								case "ITEM_EXISTS":
 									echo '<div class="alert alert-danger" role="alert">Device already exists in database!</div>';
 									break;
+								case "INVALID_DEVICE":
+									echo '<div class="alert alert-danger" role="alert">Missing or invalid device</div>';
+									break;
 								default:
 									echo "<div class='alert alert-danger' role='alert'>$msg</div>";
 									break;

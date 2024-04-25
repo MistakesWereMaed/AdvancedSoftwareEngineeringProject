@@ -74,8 +74,17 @@
 								case "ITEM_EXISTS":
 									echo '<div class="alert alert-danger" role="alert">Serial number already exists in database!</div>';
 									break;
+								case "INVALID_DEVICE_ID":
+									echo '<div class="alert alert-danger" role="alert">Missing or invalid device id</div>';
+									break;
+								case "INVALID_MANUFACTURER_ID":
+									echo '<div class="alert alert-danger" role="alert">Missing or invalid manufacturer id</div>';
+									break;
 								case "INVALID_SERIAL":
 									echo '<div class="alert alert-danger" role="alert">Missing or invalid serial number</div>';
+									break;
+								case "INVALID_STATUS":
+									echo '<div class="alert alert-danger" role="alert">Missing or invalid status</div>';
 									break;
 								default:
 									echo "<div class='alert alert-danger' role='alert'>$msg</div>";

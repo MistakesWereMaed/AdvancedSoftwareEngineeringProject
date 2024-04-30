@@ -1,38 +1,37 @@
 <?php
-include("../endpoints/add_equipment");
+include("../endpoints/modify_manufacturer.php");
 include_once("../utils/web_actions.php");
 
 $mid=$_REQUEST['mid'];
-$name=$_REQUEST['name'];
+$manufacturer=$_REQUEST['manufacturer'];
 $status=$_REQUEST['status'];
 
 //manufacturer id is missing
 if ($mid==NULL){
-    post_data('ERROR', 'Missing manufacturer id.', 'None');
+    post_data('ERROR', 'MISSING_MANUFACTURER_ID', 'None');
 }
 //missing manufacturer name
-if ($name==NULL){
-    post_data('ERROR', 'Missing manufacturer name.', 'None');
+if ($manufacturer==NULL){
+    post_data('ERROR', 'MISSING_MANUFACTURER', 'None');
 }
 //missing status
 if ($status==NULL){
-    post_data('ERROR', 'Missing status.', 'None');
+    post_data('ERROR', 'MISSING_STATUS', 'None');
 }
 //Handle valid request
-$data = "$mid&$name&$status";
-$result = api_call($data, "modify_manufacturer");
+$result = modify_manufacturer($mid, $manufacturer, $status);
 switch($result){
 	case "INVALID_MANUFACTURER_ID":
-		post_data('ERROR', 'Invalid manufacturer id.', 'query_manufacturer');
+		post_data('ERROR', 'INVALID_MANUFACTURER_ID', 'query_manufacturer');
 		break;
 	case "ITEM_EXISTS":
-		post_data('ERROR', 'Manufacturer already exists in database.', 'list_manufacturers');
+		post_data('ERROR', 'ITEM_EXISTS', 'list_manufacturers');
 		break;
 	case "INVALID_MANUFACTURER":
-			post_data('ERROR', 'Invalid manufacturer name.', 'None');
+			post_data('ERROR', 'INVALID_MANUFACTURER', 'None');
 			break;
 	case "ITEM_MODIFIED":
-		post_data('SUCCESS', 'Manufacturer modified successfully.', 'None');
+		post_data('SUCCESS', 'ITEM_MODIFIED', 'None');
 		break;
 	default:
 		post_data('ERROR', "$result", 'None');

@@ -46,8 +46,8 @@
                <div class="row">
                    
                    <?php 
-				   		include("../endpoints/get_devices.php");
-				   		include("../endpoints/get_manufacturers.php");
+				   		include_once("../endpoints/get_devices.php");
+				   		include_once("../endpoints/get_manufacturers.php");
                         $devices = get_devices(NULL);
 				   		$manufacturers = get_manufacturers(NULL);
                         if (isset($_REQUEST['msg']))
@@ -67,7 +67,10 @@
 									echo '<div class="alert alert-danger" role="alert">Invalid device id</div>';
 									break;
 								case "INVALID_SERIAL":
-									echo '<div class="alert alert-danger" role="alert">Missing or invalid serial number</div>';
+									echo '<div class="alert alert-danger" role="alert">Invalid serial number</div>';
+									break;
+								case "MISSING_SERIAL":
+									echo '<div class="alert alert-danger" role="alert">Missing serial number</div>';
 									break;
 								default:
 									echo "<div class='alert alert-danger' role='alert'>$msg</div>";
@@ -113,15 +116,16 @@
 <?php
     if (isset($_POST['submit']))
     {
-		include("../endpoints/add_equipment.php");
-		include("../utils/web_actions.php");
+		include_once("../endpoints/add_equipment.php");
+		include_once("../utils/web_actions.php");
+		include_once("../utils/sanitizer.php");
 		
         $device=$_POST['device'];
         $manufacturer=$_POST['manufacturer'];
         $serial_number=trim($_POST['serial_number']);
 		$result;
 		
-		if($serial_number == NULL || strlen($serial_number) > 64){
+		if(!safe_input($serial_number)){
 			$result = "INVALID_SERIAL";
 		} else {
 			$result = add_equipment($device, $manufacturer, $serial_number);

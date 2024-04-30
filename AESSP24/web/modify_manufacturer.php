@@ -45,9 +45,9 @@
           <div class="container">
                <div class="row">
                    <?php 
-				   		include("../endpoints/query_manufacturer.php");
-				   		include("../endpoints/modify_manufacturer.php");
-						include("../utils/web_actions.php");
+				   		include_once("../endpoints/query_manufacturer.php");
+				   		include_once("../endpoints/modify_manufacturer.php");
+						include_once("../utils/web_actions.php");
 				   
 				   		$selected_manufacturer = NULL;
 				   
@@ -70,10 +70,16 @@
 									echo '<div class="alert alert-danger" role="alert">Manufacturer already exists in database!</div>';
 									break;
 								case "INVALID_MANUFACTURER":
-									echo '<div class="alert alert-danger" role="alert">Missing or invalid manufacturer</div>';
+									echo '<div class="alert alert-danger" role="alert">Invalid manufacturer</div>';
 									break;
 								case "INVALID_STATUS":
-									echo '<div class="alert alert-danger" role="alert">Missing or invalid status</div>';
+									echo '<div class="alert alert-danger" role="alert">Invalid status</div>';
+									break;
+								case "MISSING_MANUFACTURER":
+									echo '<div class="alert alert-danger" role="alert">Missing device</div>';
+									break;
+								case "MISSING_STATUS":
+									echo '<div class="alert alert-danger" role="alert">Missing status</div>';
 									break;
 								default:
 									echo "<div class='alert alert-danger' role='alert'>$msg</div>";
@@ -113,12 +119,14 @@
 <?php
     if (isset($_POST['submit']))
     {
+		include_once("../utils/sanitizer.php");
+		
 		$mid = $_REQUEST['mid'];
         $manufacturer=$_POST['manufacturer'];
 		$status=$_POST['status'];
 		$result;
 		
-		if($manufacturer == NULL || strlen($manufacturer) > 64){
+		if(!safe_input($manufacturer)){
 			$result = "INVALID_MANUFACTURER";
 		} else {
 			$result = modify_manufacturer($mid, $manufacturer, $status);

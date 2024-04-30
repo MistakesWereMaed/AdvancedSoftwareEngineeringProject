@@ -5,6 +5,7 @@ include_once("../utils/sanitizer.php");
 
 function add_device($device){
 	if(!safe_input($device)){
+		log_call("add_device", 'INVALID_DEVICE');
 		return 'INVALID_DEVICE';
 	}
 	$sql="INSERT INTO `device_types` (device_type) VALUES ('$device')";

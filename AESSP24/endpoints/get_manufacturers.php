@@ -8,7 +8,12 @@ function get_manufacturers($include_inactive){
 		$sql="Select * from `manufacturers`";
 	}
 	$result = sql_get($sql, 'manufacturer_id', 'manufacturer');
-	log_call("get_manufacturers", $result);
+	if(is_array($result)){
+		log_call("get_manufacturers", 'SUCCESS');
+	}
+	else {
+		log_call("get_manufacturers", $result);
+	}
 	return $result;
 }
 ?>

@@ -46,18 +46,18 @@
                <div class="row">
                    
                    <?php 
-				   		include("../endpoints/get_devices.php");
-				   		include("../endpoints/get_manufacturers.php");
-				   		include("../endpoints/query_id.php");
-				   		include("../endpoints/modify_equipment.php");
-				   		include("../utils/web_actions.php");
+				   		include_once("../endpoints/get_devices.php");
+				   		include_once("../endpoints/get_manufacturers.php");
+				   		include_once("../endpoints/query_id.php");
+				   		include_once("../endpoints/modify_equipment.php");
+				   		include_once("../utils/web_actions.php");
 				   
                         $devices = get_devices(NULL);
 				   		$manufacturers = get_manufacturers(NULL);
 				   		$selected_device = NULL;
 				   
-				   		if (isset($_REQUEST['did'])){
-							$selected_device = query_id($_REQUEST['did']);
+				   		if (isset($_REQUEST['eid'])){
+							$selected_device = query_id($_REQUEST['eid']);
 						}
 				   
 				   		if($selected_device == NULL){
@@ -69,22 +69,34 @@
 							$msg = $_REQUEST['msg'];
 							switch($msg){
 								case "ITEM_MODIFIED":
-									echo '<div class="alert alert-success" role="alert">Device successfully modified.</div>';
+									echo '<div class="alert alert-success" role="alert">Equipment successfully modified.</div>';
 									break;
 								case "ITEM_EXISTS":
 									echo '<div class="alert alert-danger" role="alert">Serial number already exists in database!</div>';
 									break;
 								case "INVALID_DEVICE_ID":
-									echo '<div class="alert alert-danger" role="alert">Missing or invalid device id</div>';
+									echo '<div class="alert alert-danger" role="alert">Invalid device id</div>';
 									break;
 								case "INVALID_MANUFACTURER_ID":
-									echo '<div class="alert alert-danger" role="alert">Missing or invalid manufacturer id</div>';
+									echo '<div class="alert alert-danger" role="alert">Invalid manufacturer id</div>';
 									break;
 								case "INVALID_SERIAL":
-									echo '<div class="alert alert-danger" role="alert">Missing or invalid serial number</div>';
+									echo '<div class="alert alert-danger" role="alert">Invalid serial number</div>';
 									break;
 								case "INVALID_STATUS":
-									echo '<div class="alert alert-danger" role="alert">Missing or invalid status</div>';
+									echo '<div class="alert alert-danger" role="alert">Invalid status</div>';
+									break;
+								case "MISSING_DEVICE_ID":
+									echo '<div class="alert alert-danger" role="alert">Missing device id</div>';
+									break;
+								case "MISSING_MANUFACTURER_ID":
+									echo '<div class="alert alert-danger" role="alert">Missing manufacturer id</div>';
+									break;
+								case "MISSING_SERIAL":
+									echo '<div class="alert alert-danger" role="alert">Missing serial number</div>';
+									break;
+								case "MISSING_STATUS":
+									echo '<div class="alert alert-danger" role="alert">Missing status</div>';
 									break;
 								default:
 									echo "<div class='alert alert-danger' role='alert'>$msg</div>";
@@ -146,19 +158,21 @@
 <?php
     if (isset($_POST['submit']))
     {
-		$id = $_REQUEST['did'];
+		include_once("../utils/sanitizer.php");
+		
+		$eid = $_REQUEST['eid'];
         $device=$_POST['device'];
         $manufacturer=$_POST['manufacturer'];
         $serial_number=trim($_POST['serial_number']);
 		$status=$_POST['status'];
 		$result;
 		
-		if($serial_number == NULL || strlen($serial_number) > 64){
+		if(!safe_input($serial_number)){
 			$result = "INVALID_SERIAL";
 		} else {
-			$result = modify_equipment($id, $device, $manufacturer, $serial_number, $status);
+			$result = modify_equipment($eid, $device, $manufacturer, $serial_number, $status);
 		}
 		
-		redirect("modify.php?msg=$result&did=$id");
+		redirect("modify.php?msg=$result&eid=$eid");
     }
 ?>

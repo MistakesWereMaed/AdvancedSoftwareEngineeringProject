@@ -56,14 +56,17 @@
 									echo '<div class="alert alert-danger" role="alert">Device already exists in database!</div>';
 									break;
 								case "INVALID_DEVICE":
-									echo '<div class="alert alert-danger" role="alert">Missing or invalid device</div>';
+									echo '<div class="alert alert-danger" role="alert">Invalid device</div>';
+									break;
+								case "MISSING_DEVICE":
+									echo '<div class="alert alert-danger" role="alert">Missing device</div>';
 									break;
 								default:
 									echo "<div class='alert alert-danger' role='alert'>$msg</div>";
 									break;
 							}
 						}
-				   		include("../endpoints/get_devices.php");
+				   		include_once("../endpoints/get_devices.php");
 				   		$device_list = get_devices('yes');
                    ?>
 				   <form method="post" action="">
@@ -101,11 +104,16 @@
 <?php
     if (isset($_POST['submit']))
     {
-		include("../endpoints/add_device.php");
-		include("../utils/web_actions.php");
+		include_once("../endpoints/add_device.php");
+		include_once("../utils/web_actions.php");
+		include_once("../utils/sanitizer.php");
 		
         $device = trim($_POST['device']);
-		$result = add_device($device);
+		if(!safe_input($device)){
+			$result = "INVALID_DEVICE";
+		} else {
+			$result = add_device($device);
+		}
 		
 		redirect("add_device.php?msg=$result");
     }

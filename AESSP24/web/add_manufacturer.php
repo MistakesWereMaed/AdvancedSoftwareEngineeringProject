@@ -56,14 +56,17 @@
 									echo '<div class="alert alert-danger" role="alert">Manufacturer already exists in database!</div>';
 									break;
 								case "INVALID_MANUFACTURER":
-									echo '<div class="alert alert-danger" role="alert">Missing or invalid manufacturer</div>';
+									echo '<div class="alert alert-danger" role="alert">Invalid manufacturer</div>';
+									break;
+								case "MISSING_MANUFACTURER":
+									echo '<div class="alert alert-danger" role="alert">Missing manufacturer</div>';
 									break;
 								default:
 									echo "<div class='alert alert-danger' role='alert'>$msg</div>";
 									break;
 							}
 						}
-                   		include("../endpoints/get_manufacturers.php");
+                   		include_once("../endpoints/get_manufacturers.php");
 				   		$manufacturer_list = get_manufacturers('yes');
                    ?>
                     <form method="post" action="">
@@ -101,12 +104,17 @@
 <?php
     if (isset($_POST['submit']))
     {
-		include("../endpoints/add_manufacturer.php");
-		include("../utils/web_actions.php");
+		include_once("../endpoints/add_manufacturer.php");
+		include_once("../utils/web_actions.php");
+		include_once("../utils/sanitizer.php");
 		
         $manufacturer = trim($_POST['manufacturer']);
-		$result = add_manufacturer($manufacturer);
+		if(!safe_input($manufacturer)){
+			$result = "INVALID_MENUFACTURER";
+		} else {
+			$result = add_manufacturer($manufacturer);
+		}
 		
-		redirect("add_device.php?msg=$result");
+		redirect("add_manufacturer.php?msg=$result");
     }
 ?>

@@ -68,7 +68,7 @@ function sql_query($sql, $type){
 		$result=$dblink->query($sql);
 		$dblink->close();
 		$row = $result->fetch_array(MYSQLI_ASSOC);
-		if(count($row) > 0){
+		if($row != NULL){
 			return $row;
 		}
 		return "'$type'_NOT_FOUND";

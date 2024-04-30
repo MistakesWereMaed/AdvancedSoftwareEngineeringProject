@@ -1,5 +1,5 @@
 <?php
-include("../endpoints/get_devices.php");
+include("../endpoints/search_devices.php");
 include_once("../utils/web_actions.php");
 
 $did=$_REQUEST['did'];
@@ -19,24 +19,23 @@ if ($sn==NULL){
 }
 $include_inactive = $include_inactive == NULL ? false : true;
 
-$data = "$did&$mid&$sn&$include_inactive";
-$result = api_call($data, "search_devices");
+$result = search_devices($did, $mid, $sn, $include_inactive);
 if(is_array($result)){
 	$jsonEquipment=json_encode($result);
 	post_data("SUCCESS", "$jsonEquipment", "None");
 } else {
 	switch($result){
 		case "INVALID_DEVICE_ID":
-			post_data('ERROR', 'Invalid device id.', 'query_device');
+			post_data('ERROR', 'INVALID_DEVICE_ID', 'query_device');
 			break;
 		case "INVALID_MANUFACTURER_ID":
-			post_data('ERROR', 'Invalid manufacturer id.', 'query_manufacturer');
+			post_data('ERROR', 'INVALID_MANUFACTURER_ID', 'query_manufacturer');
 			break;
 		case "INVALID_SERIAL":
-			post_data('ERROR', 'Invalid serial number.', 'None');
+			post_data('ERROR', 'INVALID_SERIAL', 'None');
 			break;
 		case "NO_RESULTS":
-			post_data("SUCCESS", "No equipment found", "None");
+			post_data("SUCCESS", "NO_RESULTS", "None");
 			break;
 		default:
 			post_data("ERROR", "$result", "None");

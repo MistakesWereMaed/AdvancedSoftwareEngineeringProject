@@ -8,7 +8,12 @@ function get_devices($include_inactive){
 		$sql="Select * from `device_types`";
 	}
 	$result = sql_get($sql, 'type_id', 'device_type');
-	log_call("get_devices", $result);
+	if(is_array($result)){
+		log_call("get_devices", 'SUCCESS');
+	}
+	else {
+		log_call("get_devices", $result);
+	}
 	return $result;
 }
 ?>

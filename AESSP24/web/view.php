@@ -54,7 +54,7 @@
 									break;
 							}
 						}
-				   		include("../endpoints/search_devices.php");
+				   		include_once("../endpoints/search_devices.php");
 				   		$device_list = NULL;
                         if (isset($_REQUEST['filters']))
 						{
@@ -71,8 +71,8 @@
 							<?php
 							if ($device_list != "NO_RESULTS") {
 								foreach ($device_list as $key => $value) {
-									$id = $value['device_id'];
-									echo "<tr style='cursor:pointer;' onclick=\"window.location='modify.php?did=$id';\">";
+									$eid = $value['device_id'];
+									echo "<tr style='cursor:pointer;' onclick=\"window.location='modify.php?eid=$eid';\">";
 									echo "<td>" . $value['device_type'] . "</td>";
 									echo "<td>" . $value['manufacturer'] . "</td>";
 									echo "<td>" . $value['serial_number'] . "</td>";

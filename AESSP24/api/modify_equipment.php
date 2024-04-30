@@ -1,5 +1,5 @@
 <?php
-include("../endpoints/add_equipment");
+include("../endpoints/modify_equipment.php");
 include_once("../utils/web_actions.php");
 
 $eid=$_REQUEST['eid'];
@@ -10,48 +10,47 @@ $status=$_REQUEST['status'];
 
 //equipment id is missing
 if ($eid==NULL){
-    post_data('ERROR', 'Missing equipment id.', 'None');
+    post_data('ERROR', 'MISSING_EQUIPMENT_ID', 'None');
 }
 //device id is missing
 if ($did==NULL){
-    post_data('ERROR', 'Missing device id.', 'None');
+    post_data('ERROR', 'MISSING_DEVICE_ID', 'None');
 }
 //manufacturer id is missing
 if ($mid==NULL){
-    post_data('ERROR', 'Missing manufacturer id.', 'None');
+    post_data('ERROR', 'MISSING_MANUFACTURER_ID', 'None');
 }
 //missing serial number
 if ($sn==NULL){
-    post_data('ERROR', 'Missing serial number.', 'None');
+    post_data('ERROR', 'MISSING_SERIAL', 'None');
 }
 //missing status
 if ($status==NULL){
-    post_data('ERROR', 'Missing status.', 'None');
+    post_data('ERROR', 'MISSING_STATUS', 'None');
 }
 //Handle valid request
-$data = "$eid&$did&$mid&$sn&$status";
-$result = api_call($data, "modify_equipment");
+$result = modify_equipment($eid, $did, $mid, $sn, $status);
 switch($result){
 	case "INVALID_EQUIPMENT_ID":
-		post_data('ERROR', 'Invalid equipment id.', 'query_id');
+		post_data('ERROR', 'INVALID_EQUIPMENT_ID', 'query_id');
 		break;
 	case "INVALID_DEVICE_ID":
-		post_data('ERROR', 'Invalid device id.', 'query_device');
+		post_data('ERROR', 'INVALID_DEVICE_ID', 'query_device');
 		break;
 	case "INVALID_MANUFACTURER_ID":
-		post_data('ERROR', 'Invalid manufacturer id.', 'query_manufacturer');
+		post_data('ERROR', 'INVALID_MANUFACTURER_ID', 'query_manufacturer');
 		break;
 	case "INVALID_SERIAL":
-			post_data('ERROR', 'Invalid serial number.', 'None');
+			post_data('ERROR', 'INVALID_SERIAL', 'None');
 			break;
 	case "INVALID_STATUS":
-			post_data('ERROR', 'Invalid status.', 'None');
+			post_data('ERROR', 'INVALID_STATUS', 'None');
 			break;
 	case "ITEM_EXISTS":
-		post_data('ERROR', 'Equipment already exists in database.', 'query_serial');
+		post_data('ERROR', 'ITEM_EXISTS', 'query_serial');
 		break;
 	case "ITEM_MODIFIED":
-		post_data('SUCCESS', 'Equipment modified successfully.', 'None');
+		post_data('SUCCESS', 'ITEM_MODIFIED', 'None');
 		break;
 	default:
 		post_data('ERROR', "$result", 'None');

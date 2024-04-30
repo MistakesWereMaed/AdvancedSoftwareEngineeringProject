@@ -45,8 +45,8 @@
           <div class="container">
                <div class="row">
 				   <?php 
-				   		include("../endpoints/get_devices.php");
-				   		include("../endpoints/get_manufacturers.php");
+				   		include_once("../endpoints/get_devices.php");
+				   		include_once("../endpoints/get_manufacturers.php");
                         $devices = get_devices(NULL);
 				   		$manufacturers = get_manufacturers(NULL);
                    		
@@ -106,8 +106,8 @@
 <?php
     if (isset($_POST['submit']))
     {
-		include("../utils/web_actions.php");
-		include("../utils/sanitizer.php");
+		include_once("../utils/web_actions.php");
+		include_once("../utils/sanitizer.php");
 		
         $device=$_POST['device'];
         $manufacturer=$_POST['manufacturer'];

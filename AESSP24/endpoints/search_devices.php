@@ -5,14 +5,17 @@ include_once("../utils/sanitizer.php");
 
 function search_devices($type_id, $manufacturer_id, $serial_number, $include_inactive){
 	if(!is_numeric($type_id)){
+		log_call("search_devices", 'INVALID_DEVICE_ID');
 		return "INVALID_DEVICE_ID";
 	}
 	if(!is_numeric($manufacturer_id)){
+		log_call("search_devices", 'INVALID_MANUFACTURER_ID');
 		return "INVALID_MANUFACTURER_ID";
 	} 
 	if(strlen($serial_number) < 1){
 		$serial_number = 0;
 	} else if(!safe_input($serial_number)){
+		log_call("search_devices", 'INVALID_SERIAL');
 		return 'INVALID_SERIAL';
 	}
 	
@@ -38,7 +41,12 @@ function search_devices($type_id, $manufacturer_id, $serial_number, $include_ina
 	}
 	
 	$result = sql_search($sql);
-	log_call("search_devices", "$type_id, $manufacturer_id, $serial_number, $include_inactive");
+	if(is_array($result)){
+		log_call("search_devices", 'SUCCESS');
+	}
+	else {
+		log_call("search_devices", $result);
+	}
 	return $result;
 }
 ?>

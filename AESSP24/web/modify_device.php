@@ -45,9 +45,9 @@
           <div class="container">
                <div class="row">
                    <?php 
-				   		include("../endpoints/query_device.php");
-				   		include("../endpoints/modify_device.php");
-						include("../utils/web_actions.php");
+				   		include_once("../endpoints/query_device.php");
+				   		include_once("../endpoints/modify_device.php");
+						include_once("../utils/web_actions.php");
 				   
 				   		$selected_device = NULL;
 				   
@@ -70,10 +70,16 @@
 									echo '<div class="alert alert-danger" role="alert">Device already exists in database!</div>';
 									break;
 								case "INVALID_DEVICE":
-									echo '<div class="alert alert-danger" role="alert">Missing or invalid device</div>';
+									echo '<div class="alert alert-danger" role="alert">Invalid device</div>';
 									break;
 								case "INVALID_STATUS":
-									echo '<div class="alert alert-danger" role="alert">Missing or invalid status</div>';
+									echo '<div class="alert alert-danger" role="alert">Invalid status</div>';
+									break;
+								case "MISSING_DEVICE":
+									echo '<div class="alert alert-danger" role="alert">Missing device</div>';
+									break;
+								case "MISSING_STATUS":
+									echo '<div class="alert alert-danger" role="alert">Missing status</div>';
 									break;
 								default:
 									echo "<div class='alert alert-danger' role='alert'>$msg</div>";
@@ -113,12 +119,14 @@
 <?php
     if (isset($_POST['submit']))
     {		
+		include_once("../utils/sanitizer.php");
+		
 		$did = $_REQUEST['did'];
         $device=$_POST['device'];
 		$status=$_POST['status'];
 		$result;
 		
-		if($device == NULL || strlen($device) > 64){
+		if(!safe_input($device)){
 			$result = "INVALID_DEVICE";
 		} else {
 			$result = modify_device($did, $device, $status);

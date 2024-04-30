@@ -5,6 +5,7 @@ include_once("../utils/sanitizer.php");
 
 function add_manufacturer($manufacturer){
 	if(!safe_input($manufacturer)){
+		log_call("add_manufacturer", 'INVALID_MANUFACTURER');
 		return 'INVALID_MANUFACTURER';
 	}
 	$sql="INSERT INTO `manufacturers` (manufacturer) VALUES ('$manufacturer')";

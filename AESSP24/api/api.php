@@ -48,8 +48,8 @@ switch($endPoint)
         break;
     default:
 		include("../utils/logger.php");
-		log_call($endPoint, "Missing or invalid endpoint");
-		post_data("ERROR", "Missing or invalid endpoint", "None");
+		log_call($endPoint, "UNKNOWN_ENDPOINT");
+		post_data("ERROR", "UNKNOWN_ENDPOINT", "None");
         break;
 }
 die();
